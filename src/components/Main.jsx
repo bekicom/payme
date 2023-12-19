@@ -7,7 +7,7 @@ export default function Main() {
     console.log(users);
     useEffect(() => {
         axios
-            .get("https://jsonplaceholder.typicode.com/users")
+            .get("https://jsonplaceholder.typicode.com/photos")
             .then((res) => setUsers(res.data))
             .catch(err => {
                 console.log(err);
@@ -25,7 +25,9 @@ export default function Main() {
             {
                 users.slice(1, 2).map((item) => (
                     <div className="card">
-                        <p>{item.name}</p>
+                        <img src={item.thumbnailUrl} alt="" />
+                        
+                        <p>{item.title}</p>
                         <button onClick={handleAddBayClick}>add bay</button>
                     </div>
                 ))
